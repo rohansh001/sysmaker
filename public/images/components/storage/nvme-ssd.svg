@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <!-- High Speed PCIe M.2 NVMe SSD -->
+  <g transform="translate(15, 30)">
+    <!-- Dark Matte PCB -->
+    <rect x="0" y="0" width="130" height="95" rx="4" fill="#141a24" stroke="#2a3449" stroke-width="2" />
+    <!-- M.2 Gold Notch Connector (M-Key) -->
+    <line x1="6" y1="0" x2="68" y2="0" stroke="#f59e0b" stroke-width="6" stroke-dasharray="3,1" />
+    <line x1="78" y1="0" x2="124" y2="0" stroke="#f59e0b" stroke-width="6" stroke-dasharray="3,1" />
+    <!-- High-Performance PCIe Controller Chip -->
+    <rect x="18" y="20" width="28" height="28" rx="2" fill="#0d1017" stroke="#475569" stroke-width="1.5" />
+    <circle cx="32" cy="34" r="5" fill="#e02477" opacity="0.8" />
+    <!-- DRAM Cache IC -->
+    <rect x="52" y="24" width="16" height="20" rx="1" fill="#0d1017" stroke="#334155" />
+    <!-- 3D NAND Flash Memory Packages -->
+    <rect x="76" y="16" width="46" height="34" rx="2" fill="#0d1017" stroke="#334155" />
+    <rect x="76" y="54" width="46" height="34" rx="2" fill="#0d1017" stroke="#334155" />
+    <!-- Label Stripe -->
+    <rect x="12" y="58" width="56" height="26" rx="2" fill="#1e2433" stroke="#e02477" stroke-width="1.5" />
+    <text x="40" y="70" fill="#ffffff" font-size="8" font-weight="bold" font-family="monospace" text-anchor="middle">PCIe Gen4</text>
+    <text x="40" y="80" fill="#38bdf8" font-size="7" font-weight="bold" font-family="monospace" text-anchor="middle">NVMe M.2</text>
+  </g>
+</svg>

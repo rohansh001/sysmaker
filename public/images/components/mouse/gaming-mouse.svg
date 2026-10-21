@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <!-- Ergonomic Gaming Mouse -->
+  <!-- Mouse Chassis -->
+  <path d="M 50 50 C 50 25, 110 25, 110 50 L 115 110 C 115 135, 45 135, 45 110 Z" fill="#141722" stroke="#2d3448" stroke-width="2.5" />
+  <!-- Center Separation & Scroll Wheel -->
+  <line x1="80" y1="26" x2="80" y2="60" stroke="#282f42" stroke-width="2" />
+  <rect x="76" y="34" width="8" height="18" rx="3" fill="#e02477" stroke="#374154" />
+  <!-- DPI Switch Button -->
+  <rect x="77" y="58" width="6" height="8" rx="1.5" fill="#3b445b" />
+  <!-- Textured Thumb Grip -->
+  <path d="M 46 75 C 44 85, 44 95, 46 105" fill="none" stroke="#e02477" stroke-width="3" stroke-linecap="round" />
+  <!-- RGB Palm Accent Line -->
+  <path d="M 58 115 C 65 125, 95 125, 102 115" fill="none" stroke="#06b6d4" stroke-width="3" stroke-linecap="round" />
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <!-- Mid-Tower Tempered Glass Gaming Cabinet -->
+  <!-- Outer Chassis -->
+  <rect x="25" y="10" width="110" height="136" rx="8" fill="#13161e" stroke="#2d3445" stroke-width="2.5" />
+  <!-- Tempered Glass Side Window -->
+  <rect x="30" y="16" width="76" height="92" rx="4" fill="#0b0d12" stroke="#3b445a" stroke-width="1.5" />
+  <!-- Internal Ambient Glow -->
+  <circle cx="62" cy="48" r="14" fill="#e02477" opacity="0.6" filter="blur(2px)" />
+  <rect x="40" y="66" width="56" height="12" rx="2" fill="#06b6d4" opacity="0.7" />
+  <!-- PSU Bottom Shroud -->
+  <rect x="30" y="112" width="100" height="28" rx="2" fill="#181c26" stroke="#2a3040" />
+  <text x="65" y="129" fill="#64748b" font-size="7" font-weight="bold" font-family="monospace">PSU SHROUD</text>
+  <!-- Front Mesh Panel with 3 RGB Fans -->
+  <rect x="110" y="16" width="20" height="92" rx="3" fill="#1a1e28" stroke="#2e3547" />
+  <circle cx="120" cy="32" r="8" fill="none" stroke="#e02477" stroke-width="1.5" />
+  <circle cx="120" cy="62" r="8" fill="none" stroke="#e02477" stroke-width="1.5" />
+  <circle cx="120" cy="92" r="8" fill="none" stroke="#e02477" stroke-width="1.5" />
+  <!-- Case Feet -->
+  <rect x="35" y="146" width="20" height="6" rx="1.5" fill="#0b0d12" />
+  <rect x="105" y="146" width="20" height="6" rx="1.5" fill="#0b0d12" />
+</svg>

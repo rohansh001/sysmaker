@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <!-- Generic CPU Cooler -->
+  <rect x="40" y="25" width="80" height="95" rx="4" fill="#222837" stroke="#3a445c" stroke-width="2" />
+  <circle cx="80" cy="72" r="30" fill="#131620" stroke="#e02477" stroke-width="2" />
+  <circle cx="80" cy="72" r="8" fill="#2b3142" />
+  <line x1="60" y1="120" x2="60" y2="135" stroke="#b45309" stroke-width="4" />
+  <line x1="100" y1="120" x2="100" y2="135" stroke="#b45309" stroke-width="4" />
+  <text x="80" y="112" fill="#94a3b8" font-size="8" font-weight="bold" font-family="system-ui, sans-serif" text-anchor="middle">CPU COOLER</text>
+</svg>

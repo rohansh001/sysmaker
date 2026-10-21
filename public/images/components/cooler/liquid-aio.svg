@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <!-- 240mm / 360mm AIO Liquid Cooler -->
+  <!-- Top Radiator -->
+  <rect x="15" y="15" width="130" height="24" rx="3" fill="#181c26" stroke="#333b4e" stroke-width="2" />
+  <line x1="20" y1="27" x2="140" y2="27" stroke="#252b3a" stroke-width="6" stroke-dasharray="3,2" />
+  <!-- Dual Radiator Fans -->
+  <circle cx="48" cy="27" r="16" fill="none" stroke="#e02477" stroke-width="1.5" opacity="0.8" />
+  <circle cx="112" cy="27" r="16" fill="none" stroke="#e02477" stroke-width="1.5" opacity="0.8" />
+  <!-- Braided Coolant Hoses -->
+  <path d="M 45 39 C 45 75, 65 90, 72 105" fill="none" stroke="#0f1118" stroke-width="8" stroke-linecap="round" />
+  <path d="M 45 39 C 45 75, 65 90, 72 105" fill="none" stroke="#374151" stroke-width="5" stroke-dasharray="2,2" stroke-linecap="round" />
+  <path d="M 115 39 C 115 75, 95 90, 88 105" fill="none" stroke="#0f1118" stroke-width="8" stroke-linecap="round" />
+  <path d="M 115 39 C 115 75, 95 90, 88 105" fill="none" stroke="#374151" stroke-width="5" stroke-dasharray="2,2" stroke-linecap="round" />
+  <!-- Pump Block with Infinity Mirror RGB Ring -->
+  <circle cx="80" cy="115" r="28" fill="#131620" stroke="#394258" stroke-width="2.5" />
+  <circle cx="80" cy="115" r="20" fill="none" stroke="#e02477" stroke-width="3" />
+  <circle cx="80" cy="115" r="12" fill="none" stroke="#06b6d4" stroke-width="2" />
+  <text x="80" y="119" fill="#ffffff" font-size="7" font-weight="extrabold" text-anchor="middle">AIO</text>
+</svg>

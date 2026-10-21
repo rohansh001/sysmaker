@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="amdSubstrate" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#1e231c" />
+      <stop offset="100%" stopColor="#111610" />
+    </linearGradient>
+    <linearGradient id="amdIhs" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#454c59" />
+      <stop offset="50%" stopColor="#2c323d" />
+      <stop offset="100%" stopColor="#1c2027" />
+    </linearGradient>
+  </defs>
+  <!-- PCB Substrate -->
+  <rect x="15" y="15" width="130" height="130" rx="12" fill="url(#amdSubstrate)" stroke="#3f5938" stroke-width="2.5" />
+  <!-- Pin 1 Golden Indicator -->
+  <polygon points="18,18 30,18 18,30" fill="#f59e0b" />
+  <!-- Metallic IHS -->
+  <rect x="28" y="28" width="104" height="104" rx="8" fill="url(#amdIhs)" stroke="#5a6578" stroke-width="2" />
+  <rect x="34" y="34" width="92" height="92" rx="4" fill="#20242c" />
+  <!-- AMD Orange/Red Accent Stripe -->
+  <rect x="34" y="34" width="92" height="10" rx="2" fill="#ef4444" opacity="0.9" />
+  <!-- Laser Engravings -->
+  <text x="80" y="68" fill="#ffffff" font-size="16" font-weight="900" font-family="system-ui, sans-serif" text-anchor="middle" letter-spacing="1">AMD RYZEN</text>
+  <text x="80" y="86" fill="#cbd5e1" font-size="11" font-weight="700" font-family="monospace" text-anchor="middle">DESKTOP PROCESSOR</text>
+  <text x="80" y="104" fill="#94a3b8" font-size="9" font-family="monospace" text-anchor="middle">AM4 / AM5 SOCKET</text>
+  <line x1="45" y1="114" x2="115" y2="114" stroke="#e02477" stroke-width="2" stroke-linecap="round" />
+</svg>

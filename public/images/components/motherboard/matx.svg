@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="matxPcb" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#1a1e29" />
+      <stop offset="100%" stopColor="#10121a" />
+    </linearGradient>
+  </defs>
+  <!-- Micro-ATX PCB (Slightly shorter form factor) -->
+  <rect x="18" y="14" width="124" height="132" rx="6" fill="url(#matxPcb)" stroke="#32384c" stroke-width="2" />
+  <!-- I/O & VRM -->
+  <rect x="20" y="16" width="18" height="55" rx="2" fill="#141620" stroke="#2b3144" />
+  <rect x="42" y="18" width="40" height="14" rx="2" fill="#242a3a" stroke="#38435d" />
+  <!-- CPU Socket -->
+  <rect x="48" y="36" width="34" height="34" rx="4" fill="#1e2230" stroke="#444f6f" />
+  <!-- 2 or 4 DIMM Slots -->
+  <rect x="92" y="26" width="5" height="50" rx="1" fill="#0f1118" stroke="#475569" />
+  <rect x="100" y="26" width="5" height="50" rx="1" fill="#0f1118" stroke="#e02477" stroke-width="1.5" />
+  <rect x="108" y="26" width="5" height="50" rx="1" fill="#0f1118" stroke="#475569" />
+  <rect x="116" y="26" width="5" height="50" rx="1" fill="#0f1118" stroke="#e02477" stroke-width="1.5" />
+  <!-- PCIe x16 Slot -->
+  <rect x="26" y="86" width="86" height="8" rx="2" fill="#0f121a" stroke="#c59b27" stroke-width="1.5" />
+  <!-- Chipset & M.2 -->
+  <rect x="94" y="98" width="32" height="32" rx="3" fill="#191c28" stroke="#343b4f" />
+  <text x="110" y="117" fill="#38bdf8" font-size="8" font-weight="900" text-anchor="middle">mATX</text>
+  <rect x="36" y="104" width="46" height="9" rx="1.5" fill="#202534" stroke="#475569" />
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <!-- High-Frequency DDR5 RAM Stick -->
+  <g transform="translate(15, 45)">
+    <!-- Sleek Matte Dark-Graphite Armor -->
+    <rect x="0" y="0" width="130" height="50" rx="4" fill="#151720" stroke="#06b6d4" stroke-width="2" />
+    <!-- Angular RGB Lightbar -->
+    <rect x="4" y="2" width="122" height="10" rx="2" fill="#06b6d4" opacity="0.9" />
+    <!-- Center Aluminum Plate with Power Management IC (PMIC) badge -->
+    <rect x="30" y="18" width="70" height="18" rx="3" fill="#1f2430" stroke="#374154" />
+    <text x="65" y="31" fill="#ffffff" font-size="10" font-weight="900" font-family="system-ui, sans-serif" text-anchor="middle" letter-spacing="1">DDR5 SPEED</text>
+    <!-- PCB Base with centered DDR5 Notch -->
+    <rect x="0" y="44" width="130" height="14" fill="#0d0e13" stroke="#252a38" />
+    <line x1="6" y1="52" x2="60" y2="52" stroke="#f59e0b" stroke-width="4" stroke-dasharray="3,1" />
+    <!-- DDR5 Center Key Notch -->
+    <rect x="62" y="48" width="6" height="10" fill="#0d0e13" />
+    <line x1="70" y1="52" x2="124" y2="52" stroke="#f59e0b" stroke-width="4" stroke-dasharray="3,1" />
+  </g>
+</svg>

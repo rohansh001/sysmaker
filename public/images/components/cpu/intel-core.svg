@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <defs>
+    <linearGradient id="intelSubstrate" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#121e33" />
+      <stop offset="100%" stopColor="#0b1320" />
+    </linearGradient>
+    <linearGradient id="intelIhs" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#485263" />
+      <stop offset="50%" stopColor="#2c3340" />
+      <stop offset="100%" stopColor="#1c212a" />
+    </linearGradient>
+  </defs>
+  <!-- Elongated Rectangular Substrate for LGA1700 -->
+  <rect x="22" y="15" width="116" height="130" rx="8" fill="url(#intelSubstrate)" stroke="#1d4ed8" stroke-width="2.5" />
+  <!-- Alignment Notches -->
+  <circle cx="22" cy="50" r="4" fill="#0f172a" />
+  <circle cx="22" cy="110" r="4" fill="#0f172a" />
+  <circle cx="138" cy="50" r="4" fill="#0f172a" />
+  <circle cx="138" cy="110" r="4" fill="#0f172a" />
+  <!-- Nickel-plated Copper IHS with wings -->
+  <rect x="34" y="24" width="92" height="112" rx="6" fill="url(#intelIhs)" stroke="#556175" stroke-width="2" />
+  <rect x="40" y="30" width="80" height="100" rx="4" fill="#1b2029" />
+  <!-- Intel Blue Accent Bar -->
+  <rect x="40" y="30" width="80" height="10" rx="2" fill="#0284c7" opacity="0.9" />
+  <!-- Laser Engravings -->
+  <text x="80" y="66" fill="#ffffff" font-size="16" font-weight="900" font-family="system-ui, sans-serif" text-anchor="middle" letter-spacing="1">intel CORE</text>
+  <text x="80" y="84" fill="#38bdf8" font-size="11" font-weight="700" font-family="monospace" text-anchor="middle">LGA1700 UNLOCKED</text>
+  <text x="80" y="102" fill="#94a3b8" font-size="9" font-family="monospace" text-anchor="middle">12th / 13th / 14th GEN</text>
+  <line x1="50" y1="112" x2="110" y2="112" stroke="#e02477" stroke-width="2" stroke-linecap="round" />
+</svg>

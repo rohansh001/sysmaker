@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 880 660" width="100%" height="100%">
+  <!-- Compact Micro-ATX Case Background & Frame -->
+  <rect x="40" y="45" width="800" height="565" rx="16" fill="#14171f" stroke="#2b303e" stroke-width="2.5" />
+  <!-- Rubber Chassis Feet -->
+  <rect x="90" y="610" width="80" height="15" rx="3" fill="#090a0d" stroke="#222530" />
+  <rect x="710" y="610" width="80" height="15" rx="3" fill="#090a0d" stroke="#222530" />
+  <!-- Top Exhaust Mesh Panel -->
+  <rect x="180" y="49" width="460" height="10" rx="3" fill="#0f1015" stroke="#222633" stroke-dasharray="3,3" />
+  <!-- Front I/O Bezel -->
+  <rect x="780" y="60" width="45" height="535" rx="6" fill="#12141a" stroke="#262b3a" />
+  <circle cx="802" cy="85" r="7" fill="#2b303e" stroke="#3d4458" />
+  <!-- Interior Chamber -->
+  <rect x="80" y="70" width="690" height="520" rx="8" fill="#0d0e13" stroke="#1f232e" stroke-width="1.5" />
+  <!-- Compact PSU Shroud -->
+  <rect x="80" y="500" width="690" height="90" fill="#151720" stroke="#252a38" stroke-width="2" />
+  <line x1="80" y1="500" x2="770" y2="500" stroke="#2b3142" stroke-width="2.5" />
+</svg>

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 120" width="100%" height="100%">
+  <!-- Generic GPU Illustration -->
+  <rect x="10" y="25" width="8" height="70" rx="1" fill="#64748b" />
+  <rect x="18" y="28" width="148" height="64" rx="6" fill="#1a1e28" stroke="#363e52" stroke-width="2" />
+  <circle cx="56" cy="60" r="22" fill="#101218" stroke="#2d3445" />
+  <circle cx="124" cy="60" r="22" fill="#101218" stroke="#2d3445" />
+  <text x="90" y="64" fill="#cbd5e1" font-size="9" font-weight="bold" font-family="system-ui, sans-serif" text-anchor="middle">GRAPHICS CARD</text>
+  <rect x="36" y="92" width="70" height="8" rx="1" fill="#0f1117" />
+  <line x1="40" y1="96" x2="102" y2="96" stroke="#f59e0b" stroke-width="3" stroke-dasharray="2,1" />
+</svg>

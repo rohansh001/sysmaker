@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" width="100%" height="100%">
+  <!-- Generic RAM Module -->
+  <g transform="translate(15, 50)">
+    <rect x="0" y="0" width="130" height="45" rx="3" fill="#1b1f2a" stroke="#373e52" stroke-width="2" />
+    <rect x="4" y="2" width="122" height="6" fill="#e02477" opacity="0.8" />
+    <text x="65" y="26" fill="#ffffff" font-size="10" font-weight="bold" font-family="system-ui, sans-serif" text-anchor="middle">MEMORY (RAM)</text>
+    <rect x="0" y="38" width="130" height="12" fill="#0f1117" />
+    <line x1="6" y1="44" x2="124" y2="44" stroke="#f59e0b" stroke-width="3" stroke-dasharray="3,1" />
+  </g>
+</svg>
