@@ -140,6 +140,29 @@ export default function AboutPage() {
         </div>
       </div>
 
+      {/* Project Leadership / Owners */}
+      <div className="bg-charcoal-900 border border-charcoal-750 rounded-2xl p-6 sm:p-8 space-y-4">
+        <div className="flex items-center gap-3 pb-3 border-b border-charcoal-800">
+          <ShieldCheck className="w-5 h-5 text-magenta-400" />
+          <h2 className="text-lg font-bold text-white tracking-tight">
+            Project Leadership & Founders
+          </h2>
+        </div>
+        <p className="text-xs text-charcoal-300 leading-relaxed">
+          System Maker Core India is proudly engineered and maintained by:
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-1">
+          <div className="p-4 rounded-xl bg-charcoal-850 border border-charcoal-800 space-y-1">
+            <div className="text-sm font-bold text-white">Rohan RoshanBhai Shekh</div>
+            <div className="text-xs text-magenta-400 font-medium">Co-Founder & Lead Engineer</div>
+          </div>
+          <div className="p-4 rounded-xl bg-charcoal-850 border border-charcoal-800 space-y-1">
+            <div className="text-sm font-bold text-white">Joshi Priyanshi Premdatt</div>
+            <div className="text-xs text-magenta-400 font-medium">Co-Founder & Product Lead</div>
+          </div>
+        </div>
+      </div>
+
       {/* CTA */}
       <div className="text-center pt-4">
         <Link href="/builder">

@@ -32,8 +32,11 @@ export const Footer: React.FC = () => {
               Data Methodology & Affiliate Disclosure
             </Link>
           </div>
-          <div className="text-[10px] text-charcoal-500 hidden md:block">
-            Verified Indian Retailers: Amazon India • MDComputers • Vedant • PrimeABGB
+          <div className="text-[10px] text-charcoal-400 flex items-center gap-1.5">
+            <span>Owners:</span>
+            <span className="text-magenta-400 font-bold">Rohan RoshanBhai Shekh</span>
+            <span>•</span>
+            <span className="text-magenta-400 font-bold">Joshi Priyanshi Premdatt</span>
           </div>
         </div>
       </footer>
@@ -136,10 +139,18 @@ export const Footer: React.FC = () => {
         {/* Bottom bar */}
         <div className="border-t border-charcoal-850 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-charcoal-500">
           <p>© {new Date().getFullYear()} System Maker Core India. All trademarks and brand logos belong to their respective owners.</p>
-          <p className="flex items-center gap-1">
-            <span>Engineered with precision for the Indian PC Building Community</span>
-            <Heart className="w-3.5 h-3.5 text-magenta-500 fill-magenta-500" />
-          </p>
+          <div className="flex flex-col sm:items-end text-xs text-charcoal-400 gap-1">
+            <div className="flex items-center gap-1.5 text-charcoal-300">
+              <span className="text-charcoal-400">Owners:</span>
+              <span className="text-magenta-400 font-bold">Rohan RoshanBhai Shekh</span>
+              <span className="text-charcoal-500">•</span>
+              <span className="text-magenta-400 font-bold">Joshi Priyanshi Premdatt</span>
+            </div>
+            <p className="flex items-center gap-1 text-[11px] text-charcoal-500">
+              <span>Engineered with precision for the Indian PC Building Community</span>
+              <Heart className="w-3 h-3 text-magenta-500 fill-magenta-500" />
+            </p>
+          </div>
         </div>
       </div>
     </footer>
