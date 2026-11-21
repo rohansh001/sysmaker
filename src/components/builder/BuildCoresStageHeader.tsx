@@ -244,7 +244,7 @@ export const BuildCoresStageHeader: React.FC<BuildCoresStageHeaderProps> = ({
 
         {/* Right Stage Controls */}
         <div className="flex items-center gap-2">
-          {/* Hide/Show 2D Visualizer */}
+          {/* Hide/Show Setup Visualizer */}
           <button
             onClick={onToggleVisualizer}
             className="flex items-center gap-1.5 px-2.5 py-1 rounded-md bg-charcoal-800/80 hover:bg-charcoal-700 text-charcoal-300 hover:text-white transition-colors"
@@ -252,12 +252,12 @@ export const BuildCoresStageHeader: React.FC<BuildCoresStageHeaderProps> = ({
             {showVisualizer ? (
               <>
                 <EyeOff className="w-3 h-3 text-charcoal-400" />
-                <span>Hide 2D</span>
+                <span>Hide Setup</span>
               </>
             ) : (
               <>
                 <Eye className="w-3 h-3 text-magenta-400" />
-                <span>Show 2D</span>
+                <span>Show Setup</span>
               </>
             )}
           </button>

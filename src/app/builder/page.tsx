@@ -20,12 +20,7 @@ import { BuildCoresLeftSidebar } from '@/components/builder/BuildCoresLeftSideba
 import { BuildCoresStageHeader } from '@/components/builder/BuildCoresStageHeader';
 import { BuildCoresPartsDrawer } from '@/components/builder/BuildCoresPartsDrawer';
 import { BuildCoresToolDock } from '@/components/builder/BuildCoresToolDock';
-import { RigVisualizer2D } from '@/components/builder/RigVisualizer2D';
-import { RigVisualizer3D } from '@/components/builder/RigVisualizer3D';
 import { SetupVisualizer2D } from '@/components/builder/SetupVisualizer2D';
-import { PerformanceBenchmarkStudio } from '@/components/builder/PerformanceBenchmarkStudio';
-import { PCAssemblyGuideStudio } from '@/components/builder/PCAssemblyGuideStudio';
-import { AirflowSimulation } from '@/components/builder/AirflowSimulation';
 import { QuickSearchModal } from '@/components/builder/QuickSearchModal';
 import { BuildSettingsModal } from '@/components/builder/BuildSettingsModal';
 import { DealsModal } from '@/components/builder/DealsModal';
@@ -77,8 +72,8 @@ function BuilderContent() {
   const [saveBuildName, setSaveBuildName] = useState('New Build (Clone)');
   const [savedBuildCount, setSavedBuildCount] = useState<number>(0);
 
-  // Stage & Visualizer State
-  const [activeStageMode, setActiveStageMode] = useState<'build' | '3d' | 'setup' | 'benchmark' | 'guide'>('build');
+  // Stage & Visualizer State (Setup Battlestation View)
+  const [activeStageMode, setActiveStageMode] = useState<'setup'>('setup');
   const [showVisualizer, setShowVisualizer] = useState<boolean>(true);
   const [fanSpeed, setFanSpeed] = useState<'off' | 'normal' | 'turbo'>('normal');
   const [rgbTheme, setRgbTheme] = useState<'magenta' | 'cyberpunk' | 'arctic' | 'stealth'>('magenta');
@@ -394,78 +389,12 @@ function BuilderContent() {
             ref={canvasRef}
             className="flex-1 relative flex flex-col items-center justify-center p-3 sm:p-6 overflow-hidden bg-gradient-to-b from-[#090b12] to-[#0f1422] select-none"
           >
-            {/* Stage Mode Switcher Tabs (top center) matching BuildCores */}
+            {/* Stage Mode (Setup Battlestation View) */}
             <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 flex items-center p-1 rounded-full bg-charcoal-900/90 backdrop-blur-md border border-charcoal-700/80 shadow-lg">
-              <button
-                onClick={() => {
-                  rigAudio.playLatchClick();
-                  setActiveStageMode('build');
-                }}
-                className={`flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
-                  activeStageMode === 'build'
-                    ? 'bg-charcoal-800 text-white shadow-sm'
-                    : 'text-charcoal-400 hover:text-white'
-                }`}
-              >
-                <Cpu className="w-3.5 h-3.5 text-magenta-400" />
-                <span>2D Rig</span>
-              </button>
-              <button
-                onClick={() => {
-                  rigAudio.playLatchClick();
-                  setActiveStageMode('3d');
-                }}
-                className={`flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
-                  activeStageMode === '3d'
-                    ? 'bg-charcoal-800 text-white shadow-sm'
-                    : 'text-charcoal-400 hover:text-white'
-                }`}
-              >
-                <Box className="w-3.5 h-3.5 text-amber-400" />
-                <span>3D Orbit</span>
-              </button>
-              <button
-                onClick={() => {
-                  rigAudio.playLatchClick();
-                  setActiveStageMode('setup');
-                }}
-                className={`flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
-                  activeStageMode === 'setup'
-                    ? 'bg-charcoal-800 text-white shadow-sm'
-                    : 'text-charcoal-400 hover:text-white'
-                }`}
-              >
+              <div className="flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold bg-charcoal-800 text-white shadow-sm">
                 <Monitor className="w-3.5 h-3.5 text-cyan-400" />
                 <span>Setup</span>
-              </button>
-              <button
-                onClick={() => {
-                  rigAudio.playLatchClick();
-                  setActiveStageMode('benchmark');
-                }}
-                className={`flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
-                  activeStageMode === 'benchmark'
-                    ? 'bg-charcoal-800 text-white shadow-sm'
-                    : 'text-charcoal-400 hover:text-white'
-                }`}
-              >
-                <Gauge className="w-3.5 h-3.5 text-emerald-400" />
-                <span>FPS Sim</span>
-              </button>
-              <button
-                onClick={() => {
-                  rigAudio.playLatchClick();
-                  setActiveStageMode('guide');
-                }}
-                className={`flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
-                  activeStageMode === 'guide'
-                    ? 'bg-charcoal-800 text-white shadow-sm'
-                    : 'text-charcoal-400 hover:text-white'
-                }`}
-              >
-                <Wrench className="w-3.5 h-3.5 text-blue-400" />
-                <span>Assembly</span>
-              </button>
+              </div>
             </div>
 
             {/* Top Left Watermark matching BuildCores screenshot */}
@@ -529,76 +458,29 @@ function BuilderContent() {
               </button>
             </div>
 
-            {/* Center Stage Presentation */}
+            {/* Center Stage Presentation (Setup Battlestation View) */}
             {showVisualizer ? (
               <div
                 className="w-full max-w-4xl h-full flex items-center justify-center transition-transform duration-200"
                 style={{ transform: `scale(${canvasZoom})` }}
               >
-                {activeStageMode === 'build' && (
-                  <div className="relative w-full aspect-[4/3] max-h-[580px] flex items-center justify-center">
-                    <RigVisualizer2D
-                      components={build.components}
-                      onSelectCategory={(cat) => setActivePickerCategory(cat)}
-                      onRemoveCategory={(cat) => handleRemoveComponent(cat)}
-                      isGpuRequired={
-                        Boolean(
-                          build.components.cpu &&
-                            !(build.components.cpu.specifications as any)?.integratedGraphics
-                        )
-                      }
-                    />
-                    {/* Airflow Simulation Layer */}
-                    <svg
-                      viewBox="0 0 800 600"
-                      className="absolute inset-0 w-full h-full pointer-events-none z-20"
-                    >
-                      <AirflowSimulation isActive={showAirflow} />
-                    </svg>
-                  </div>
-                )}
-
-                {activeStageMode === '3d' && (
-                  <RigVisualizer3D
-                    components={build.components}
-                    onSelectCategory={(cat) => setActivePickerCategory(cat)}
-                    rgbTheme={rgbTheme}
-                  />
-                )}
-
-                {activeStageMode === 'setup' && (
-                  <SetupVisualizer2D
-                    components={build.components}
-                    onSelectCategory={(cat) => setActivePickerCategory(cat)}
-                    rgbTheme={rgbTheme}
-                    dualDisplays={dualDisplays}
-                  />
-                )}
-
-                {activeStageMode === 'benchmark' && (
-                  <PerformanceBenchmarkStudio
-                    components={build.components}
-                    estimatedWattage={compatibilityReport.estimatedWattage}
-                  />
-                )}
-
-                {activeStageMode === 'guide' && (
-                  <PCAssemblyGuideStudio
-                    components={build.components}
-                    onSelectCategory={(cat) => setActivePickerCategory(cat)}
-                  />
-                )}
+                <SetupVisualizer2D
+                  components={build.components}
+                  onSelectCategory={(cat) => setActivePickerCategory(cat)}
+                  rgbTheme={rgbTheme}
+                  dualDisplays={dualDisplays}
+                />
               </div>
             ) : (
               /* If visualizer is hidden */
               <div className="text-center space-y-3 py-16 text-charcoal-400">
-                <p className="text-sm">2D Visualizer is currently hidden.</p>
+                <p className="text-sm">Setup Visualizer is currently hidden.</p>
                 <Button
                   variant="primary"
                   size="sm"
                   onClick={() => setShowVisualizer(true)}
                 >
-                  Show 2D Visualizer
+                  Show Setup Visualizer
                 </Button>
               </div>
             )}
