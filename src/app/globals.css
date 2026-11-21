@@ -42,3 +42,71 @@ body {
   background: #e11d74;
   color: #ffffff;
 }
+
+/* PC Rig Visualizer Realistic Animations */
+@keyframes rig-fan-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rig-fan-spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes rig-aio-infinity {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(0.95) rotate(180deg);
+    opacity: 1;
+  }
+}
+
+@keyframes rig-thermal-pulse {
+  0%, 100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 0.95;
+  }
+}
+
+.spin-fan {
+  animation: rig-fan-spin 1.4s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.spin-fan-fast {
+  animation: rig-fan-spin 0.75s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.spin-fan-reverse {
+  animation: rig-fan-spin-reverse 1.2s linear infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.aio-infinity-head {
+  animation: rig-aio-infinity 8s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.thermal-pulsing {
+  animation: rig-thermal-pulse 2.5s ease-in-out infinite;
+}
+
