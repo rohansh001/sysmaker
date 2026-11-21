@@ -20,7 +20,9 @@ import { BuildCoresLeftSidebar } from '@/components/builder/BuildCoresLeftSideba
 import { BuildCoresStageHeader } from '@/components/builder/BuildCoresStageHeader';
 import { BuildCoresPartsDrawer } from '@/components/builder/BuildCoresPartsDrawer';
 import { BuildCoresToolDock } from '@/components/builder/BuildCoresToolDock';
+import { RigVisualizer2D } from '@/components/builder/RigVisualizer2D';
 import { SetupVisualizer2D } from '@/components/builder/SetupVisualizer2D';
+import { AirflowSimulation } from '@/components/builder/AirflowSimulation';
 import { QuickSearchModal } from '@/components/builder/QuickSearchModal';
 import { BuildSettingsModal } from '@/components/builder/BuildSettingsModal';
 import { DealsModal } from '@/components/builder/DealsModal';
@@ -72,8 +74,8 @@ function BuilderContent() {
   const [saveBuildName, setSaveBuildName] = useState('New Build (Clone)');
   const [savedBuildCount, setSavedBuildCount] = useState<number>(0);
 
-  // Stage & Visualizer State (Setup Battlestation View)
-  const [activeStageMode, setActiveStageMode] = useState<'setup'>('setup');
+  // Stage & Visualizer State (2D Rig View)
+  const [activeStageMode, setActiveStageMode] = useState<'build'>('build');
   const [showVisualizer, setShowVisualizer] = useState<boolean>(true);
   const [fanSpeed, setFanSpeed] = useState<'off' | 'normal' | 'turbo'>('normal');
   const [rgbTheme, setRgbTheme] = useState<'magenta' | 'cyberpunk' | 'arctic' | 'stealth'>('magenta');
@@ -389,11 +391,11 @@ function BuilderContent() {
             ref={canvasRef}
             className="flex-1 relative flex flex-col items-center justify-center p-3 sm:p-6 overflow-hidden bg-gradient-to-b from-[#090b12] to-[#0f1422] select-none"
           >
-            {/* Stage Mode (Setup Battlestation View) */}
+            {/* Stage Mode (2D Rig Mode) */}
             <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 flex items-center p-1 rounded-full bg-charcoal-900/90 backdrop-blur-md border border-charcoal-700/80 shadow-lg">
               <div className="flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold bg-charcoal-800 text-white shadow-sm">
-                <Monitor className="w-3.5 h-3.5 text-cyan-400" />
-                <span>Setup</span>
+                <Cpu className="w-3.5 h-3.5 text-magenta-400" />
+                <span>2D Rig</span>
               </div>
             </div>
 
@@ -458,29 +460,43 @@ function BuilderContent() {
               </button>
             </div>
 
-            {/* Center Stage Presentation (Setup Battlestation View) */}
+            {/* Center Stage Presentation (2D PC Rig Visualizer) */}
             {showVisualizer ? (
               <div
                 className="w-full max-w-4xl h-full flex items-center justify-center transition-transform duration-200"
                 style={{ transform: `scale(${canvasZoom})` }}
               >
-                <SetupVisualizer2D
-                  components={build.components}
-                  onSelectCategory={(cat) => setActivePickerCategory(cat)}
-                  rgbTheme={rgbTheme}
-                  dualDisplays={dualDisplays}
-                />
+                <div className="relative w-full aspect-[4/3] max-h-[580px] flex items-center justify-center">
+                  <RigVisualizer2D
+                    components={build.components}
+                    onSelectCategory={(cat) => setActivePickerCategory(cat)}
+                    onRemoveCategory={(cat) => handleRemoveComponent(cat)}
+                    isGpuRequired={
+                      Boolean(
+                        build.components.cpu &&
+                          !(build.components.cpu.specifications as any)?.integratedGraphics
+                      )
+                    }
+                  />
+                  {/* Airflow Simulation Layer */}
+                  <svg
+                    viewBox="0 0 800 600"
+                    className="absolute inset-0 w-full h-full pointer-events-none z-20"
+                  >
+                    <AirflowSimulation isActive={showAirflow} />
+                  </svg>
+                </div>
               </div>
             ) : (
               /* If visualizer is hidden */
               <div className="text-center space-y-3 py-16 text-charcoal-400">
-                <p className="text-sm">Setup Visualizer is currently hidden.</p>
+                <p className="text-sm">2D Visualizer is currently hidden.</p>
                 <Button
                   variant="primary"
                   size="sm"
                   onClick={() => setShowVisualizer(true)}
                 >
-                  Show Setup Visualizer
+                  Show 2D Visualizer
                 </Button>
               </div>
             )}
