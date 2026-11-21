@@ -24,6 +24,7 @@ import { RigVisualizer2D } from '@/components/builder/RigVisualizer2D';
 import { RigVisualizer3D } from '@/components/builder/RigVisualizer3D';
 import { SetupVisualizer2D } from '@/components/builder/SetupVisualizer2D';
 import { PerformanceBenchmarkStudio } from '@/components/builder/PerformanceBenchmarkStudio';
+import { PCAssemblyGuideStudio } from '@/components/builder/PCAssemblyGuideStudio';
 import { AirflowSimulation } from '@/components/builder/AirflowSimulation';
 import { QuickSearchModal } from '@/components/builder/QuickSearchModal';
 import { BuildSettingsModal } from '@/components/builder/BuildSettingsModal';
@@ -77,7 +78,7 @@ function BuilderContent() {
   const [savedBuildCount, setSavedBuildCount] = useState<number>(0);
 
   // Stage & Visualizer State
-  const [activeStageMode, setActiveStageMode] = useState<'build' | '3d' | 'setup' | 'benchmark'>('build');
+  const [activeStageMode, setActiveStageMode] = useState<'build' | '3d' | 'setup' | 'benchmark' | 'guide'>('build');
   const [showVisualizer, setShowVisualizer] = useState<boolean>(true);
   const [fanSpeed, setFanSpeed] = useState<'off' | 'normal' | 'turbo'>('normal');
   const [rgbTheme, setRgbTheme] = useState<'magenta' | 'cyberpunk' | 'arctic' | 'stealth'>('magenta');
@@ -451,6 +452,20 @@ function BuilderContent() {
                 <Gauge className="w-3.5 h-3.5 text-emerald-400" />
                 <span>FPS Sim</span>
               </button>
+              <button
+                onClick={() => {
+                  rigAudio.playLatchClick();
+                  setActiveStageMode('guide');
+                }}
+                className={`flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
+                  activeStageMode === 'guide'
+                    ? 'bg-charcoal-800 text-white shadow-sm'
+                    : 'text-charcoal-400 hover:text-white'
+                }`}
+              >
+                <Wrench className="w-3.5 h-3.5 text-blue-400" />
+                <span>Assembly</span>
+              </button>
             </div>
 
             {/* Top Left Watermark matching BuildCores screenshot */}
@@ -564,6 +579,13 @@ function BuilderContent() {
                   <PerformanceBenchmarkStudio
                     components={build.components}
                     estimatedWattage={compatibilityReport.estimatedWattage}
+                  />
+                )}
+
+                {activeStageMode === 'guide' && (
+                  <PCAssemblyGuideStudio
+                    components={build.components}
+                    onSelectCategory={(cat) => setActivePickerCategory(cat)}
                   />
                 )}
               </div>
