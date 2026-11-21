@@ -21,7 +21,9 @@ import { BuildCoresStageHeader } from '@/components/builder/BuildCoresStageHeade
 import { BuildCoresPartsDrawer } from '@/components/builder/BuildCoresPartsDrawer';
 import { BuildCoresToolDock } from '@/components/builder/BuildCoresToolDock';
 import { RigVisualizer2D } from '@/components/builder/RigVisualizer2D';
+import { RigVisualizer3D } from '@/components/builder/RigVisualizer3D';
 import { SetupVisualizer2D } from '@/components/builder/SetupVisualizer2D';
+import { PerformanceBenchmarkStudio } from '@/components/builder/PerformanceBenchmarkStudio';
 import { AirflowSimulation } from '@/components/builder/AirflowSimulation';
 import { QuickSearchModal } from '@/components/builder/QuickSearchModal';
 import { BuildSettingsModal } from '@/components/builder/BuildSettingsModal';
@@ -60,7 +62,10 @@ import {
   Flame,
   Layers,
   Wrench,
+  Box,
+  Gauge,
 } from 'lucide-react';
+import { rigAudio } from '@/lib/audio/rigAudio';
 
 function BuilderContent() {
   const searchParams = useSearchParams();
@@ -72,7 +77,7 @@ function BuilderContent() {
   const [savedBuildCount, setSavedBuildCount] = useState<number>(0);
 
   // Stage & Visualizer State
-  const [activeStageMode, setActiveStageMode] = useState<'build' | 'setup'>('build');
+  const [activeStageMode, setActiveStageMode] = useState<'build' | '3d' | 'setup' | 'benchmark'>('build');
   const [showVisualizer, setShowVisualizer] = useState<boolean>(true);
   const [fanSpeed, setFanSpeed] = useState<'off' | 'normal' | 'turbo'>('normal');
   const [rgbTheme, setRgbTheme] = useState<'magenta' | 'cyberpunk' | 'arctic' | 'stealth'>('magenta');
@@ -391,19 +396,39 @@ function BuilderContent() {
             {/* Stage Mode Switcher Tabs (top center) matching BuildCores */}
             <div className="absolute top-4 left-1/2 -translate-x-1/2 z-20 flex items-center p-1 rounded-full bg-charcoal-900/90 backdrop-blur-md border border-charcoal-700/80 shadow-lg">
               <button
-                onClick={() => setActiveStageMode('build')}
-                className={`flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
+                onClick={() => {
+                  rigAudio.playLatchClick();
+                  setActiveStageMode('build');
+                }}
+                className={`flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
                   activeStageMode === 'build'
                     ? 'bg-charcoal-800 text-white shadow-sm'
                     : 'text-charcoal-400 hover:text-white'
                 }`}
               >
                 <Cpu className="w-3.5 h-3.5 text-magenta-400" />
-                <span>PC Build</span>
+                <span>2D Rig</span>
               </button>
               <button
-                onClick={() => setActiveStageMode('setup')}
-                className={`flex items-center gap-1.5 px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
+                onClick={() => {
+                  rigAudio.playLatchClick();
+                  setActiveStageMode('3d');
+                }}
+                className={`flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
+                  activeStageMode === '3d'
+                    ? 'bg-charcoal-800 text-white shadow-sm'
+                    : 'text-charcoal-400 hover:text-white'
+                }`}
+              >
+                <Box className="w-3.5 h-3.5 text-amber-400" />
+                <span>3D Orbit</span>
+              </button>
+              <button
+                onClick={() => {
+                  rigAudio.playLatchClick();
+                  setActiveStageMode('setup');
+                }}
+                className={`flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
                   activeStageMode === 'setup'
                     ? 'bg-charcoal-800 text-white shadow-sm'
                     : 'text-charcoal-400 hover:text-white'
@@ -411,6 +436,20 @@ function BuilderContent() {
               >
                 <Monitor className="w-3.5 h-3.5 text-cyan-400" />
                 <span>Setup</span>
+              </button>
+              <button
+                onClick={() => {
+                  rigAudio.playLatchClick();
+                  setActiveStageMode('benchmark');
+                }}
+                className={`flex items-center gap-1.5 px-3 sm:px-4 py-1.5 rounded-full text-xs font-bold transition-all ${
+                  activeStageMode === 'benchmark'
+                    ? 'bg-charcoal-800 text-white shadow-sm'
+                    : 'text-charcoal-400 hover:text-white'
+                }`}
+              >
+                <Gauge className="w-3.5 h-3.5 text-emerald-400" />
+                <span>FPS Sim</span>
               </button>
             </div>
 
@@ -481,7 +520,7 @@ function BuilderContent() {
                 className="w-full max-w-4xl h-full flex items-center justify-center transition-transform duration-200"
                 style={{ transform: `scale(${canvasZoom})` }}
               >
-                {activeStageMode === 'build' ? (
+                {activeStageMode === 'build' && (
                   <div className="relative w-full aspect-[4/3] max-h-[580px] flex items-center justify-center">
                     <RigVisualizer2D
                       components={build.components}
@@ -502,13 +541,29 @@ function BuilderContent() {
                       <AirflowSimulation isActive={showAirflow} />
                     </svg>
                   </div>
-                ) : (
-                  /* Setup Mode Battlestation */
+                )}
+
+                {activeStageMode === '3d' && (
+                  <RigVisualizer3D
+                    components={build.components}
+                    onSelectCategory={(cat) => setActivePickerCategory(cat)}
+                    rgbTheme={rgbTheme}
+                  />
+                )}
+
+                {activeStageMode === 'setup' && (
                   <SetupVisualizer2D
                     components={build.components}
                     onSelectCategory={(cat) => setActivePickerCategory(cat)}
                     rgbTheme={rgbTheme}
                     dualDisplays={dualDisplays}
+                  />
+                )}
+
+                {activeStageMode === 'benchmark' && (
+                  <PerformanceBenchmarkStudio
+                    components={build.components}
+                    estimatedWattage={compatibilityReport.estimatedWattage}
                   />
                 )}
               </div>
